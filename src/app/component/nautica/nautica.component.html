@@ -1,0 +1,18 @@
+<div class="container mt-4">
+    <div *ngIf="apodData" class="card shadow">
+      <div class="card-body">
+        <h2 class="card-title">{{ apodData.title }}</h2>
+        <p><strong>Fecha:</strong> {{ apodData.date }}</p>
+        <p><strong>Explicación:</strong> {{ apodData.explanation }}</p>
+  
+        <div *ngIf="apodData.media_type === 'image'" class="text-center">
+          <img [src]="apodData.url" [alt]="apodData.title" class="img-fluid rounded">
+        </div>
+  
+        <div *ngIf="apodData.media_type === 'video'" class="embed-responsive embed-responsive-16by9">
+          <iframe [src]="apodData.url" class="embed-responsive-item" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+  
