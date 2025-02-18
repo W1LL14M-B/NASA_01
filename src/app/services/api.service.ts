@@ -1,13 +1,4 @@
-/* import { Injectable } from '@angular/core';
 
-@Injectable({
-  providedIn: 'root'
-})
-export class ApiService {
-
-  constructor() { }
-}
- */
 
 
 import { Injectable } from '@angular/core';
@@ -23,7 +14,13 @@ export class ApiService {
 
   constructor(private http: HttpClient) { }
 
-  getApod(): Observable<any> {
+/*   getApod(): Observable<any> {
     return this.http.get<any>(`${this.API_URL}?api_key=${this.API_KEY}`);
+  } 
+ */
+
+  getApod(startDate: string, endDate: string): Observable<any> {
+    return this.http.get<any>(`${this.API_URL}?api_key=${this.API_KEY}&start_date=${startDate}&end_date=${endDate}`);
   }
+ 
 }
